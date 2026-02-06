@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -14,6 +14,30 @@ import {
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Robust autoplay handling per browser policies
+    const video = videoRef.current;
+    if (video) {
+      // 1. Force muted properties to satisfy autoplay policies
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+
+      // 2. Programmatically attempt play
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn("Auto-play was prevented by the browser:", error);
+          // Note: Since we forced muted=true above, this catch block 
+          // rarely triggers in modern browsers unless Data Saver is on.
+        });
+      }
+    }
+  }, []);
+
   return (
     <div className="space-y-12 max-w-7xl mx-auto">
       
@@ -48,14 +72,19 @@ const Dashboard: React.FC = () => {
             {/* Right Video Overlay - Phone Portrait Style */}
             <div className="hidden lg:block w-[280px] xl:w-[300px] shrink-0">
                 <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black backdrop-blur-sm">
-                    {/* Reliable Abstract Tech Video matching the theme */}
+                    {/* 
+                      Using a reliable Pexels ID that supports direct streaming.
+                      Video: Abstract Purple Fluid
+                    */}
                     <video 
-                        src="https://assets.mixkit.co/videos/preview/mixkit-waves-of-purple-light-1186-large.mp4"
+                        ref={videoRef}
+                        src="https://videos.pexels.com/video-files/6994602/6994602-hd_1080_1920_30fps.mp4"
                         className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
-                        autoPlay
                         loop
                         muted
                         playsInline
+                        autoPlay
+                        preload="auto"
                     />
                 </div>
             </div>
