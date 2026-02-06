@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -14,35 +14,11 @@ import {
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Robust autoplay handling per browser policies
-    const video = videoRef.current;
-    if (video) {
-      // 1. Force muted properties to satisfy autoplay policies
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-
-      // 2. Programmatically attempt play
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.warn("Auto-play was prevented by the browser:", error);
-          // Note: Since we forced muted=true above, this catch block 
-          // rarely triggers in modern browsers unless Data Saver is on.
-        });
-      }
-    }
-  }, []);
-
   return (
     <div className="space-y-12 max-w-7xl mx-auto">
       
       {/* Hero Section */}
-      <div className="relative rounded-3xl overflow-hidden shadow-sls-xl min-h-[500px] flex items-center group">
+      <div className="relative rounded-3xl overflow-hidden shadow-sls-xl min-h-[400px] flex items-center group">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
@@ -55,38 +31,17 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Hero Content Wrapper */}
-        <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between p-8 md:p-16 gap-12">
-            {/* Left Text */}
-            <div className="max-w-3xl text-white flex-1">
+        <div className="relative z-10 w-full flex flex-col items-center justify-center text-center p-8 md:p-16">
+            <div className="max-w-4xl text-white">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight drop-shadow-lg">
                   Welcome to <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-200">
                   Vibe Coding
                   </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/95 font-light leading-relaxed max-w-2xl drop-shadow-md">
+              <p className="text-xl md:text-2xl text-white/95 font-light leading-relaxed drop-shadow-md">
                   Where English becomes your programming language.
               </p>
-            </div>
-
-            {/* Right Video Overlay - Phone Portrait Style */}
-            <div className="hidden lg:block w-[280px] xl:w-[300px] shrink-0">
-                <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black backdrop-blur-sm">
-                    {/* 
-                      Using a reliable Pexels ID that supports direct streaming.
-                      Video: Abstract Purple Fluid
-                    */}
-                    <video 
-                        ref={videoRef}
-                        src="https://videos.pexels.com/video-files/6994602/6994602-hd_1080_1920_30fps.mp4"
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
-                        loop
-                        muted
-                        playsInline
-                        autoPlay
-                        preload="auto"
-                    />
-                </div>
             </div>
         </div>
       </div>
