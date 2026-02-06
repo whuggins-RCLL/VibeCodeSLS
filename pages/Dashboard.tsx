@@ -8,7 +8,7 @@ import {
   MessageSquare, 
   Brain, 
   AlertCircle, 
-  Sparkle, 
+  Sparkles, 
   Layout, 
   GraduationCap 
 } from 'lucide-react';
@@ -147,7 +147,7 @@ const Dashboard: React.FC = () => {
                       Custom ChatGPT GPTs Guide
                     </a>
                     <a href="https://sites.google.com/law.stanford.edu/ailearninghub/sls-training-center/custom-gems" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-charcoal dark:text-neutral-offWhite hover:text-cardinal dark:hover:text-electric transition-colors">
-                      <div className="p-2 bg-neutral-offWhite dark:bg-neutral-darkBg rounded-lg group-hover:bg-cardinal group-hover:text-white transition-colors"><Sparkle size={14}/></div>
+                      <div className="p-2 bg-neutral-offWhite dark:bg-neutral-darkBg rounded-lg group-hover:bg-cardinal group-hover:text-white transition-colors"><Sparkles size={14}/></div>
                       Custom Gemini Gems Guide
                     </a>
                     <a href="https://sites.google.com/law.stanford.edu/ailearninghub/chatgpt-projects" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-charcoal dark:text-neutral-offWhite hover:text-cardinal dark:hover:text-electric transition-colors">

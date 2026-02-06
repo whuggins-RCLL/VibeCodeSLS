@@ -111,19 +111,26 @@
         -webkit-text-fill-color: transparent;
       }
     </style>
+  <!-- Load Babel for browser-side JSX compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
   <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0?deps=react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?deps=react@18.2.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
   }
 }
 </script>
 </head>
   <body class="bg-neutral-pureWhite dark:bg-neutral-darkBg text-neutral-charcoal dark:text-neutral-offWhite transition-colors duration-300 antialiased selection:bg-cardinal-light selection:text-white">
     <div id="root"></div>
+    <!-- Use text/babel with data-type="module" for in-browser transpilation -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>
