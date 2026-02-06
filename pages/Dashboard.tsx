@@ -45,15 +45,13 @@ const Dashboard: React.FC = () => {
               </p>
             </div>
 
-            {/* Right Ambience Video Overlay */}
-            <div className="hidden lg:block w-[400px] xl:w-[480px] shrink-0 transform rotate-2 hover:rotate-0 transition-transform duration-700 ease-out perspective-1000">
-                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/20 backdrop-blur-sm group-hover:shadow-cardinal/30 transition-shadow">
-                    <div className="absolute inset-0 z-20 pointer-events-none shadow-[inset_0_0_60px_rgba(0,0,0,0.6)] mix-blend-multiply"></div>
-                     <div className="absolute inset-0 z-30 pointer-events-none bg-gradient-to-tr from-cardinal/20 to-transparent mix-blend-overlay"></div>
+            {/* Right Video Overlay - Phone Portrait Style */}
+            <div className="hidden lg:block w-[280px] xl:w-[300px] shrink-0 transform rotate-2 hover:rotate-0 transition-transform duration-700 ease-out perspective-1000">
+                <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black backdrop-blur-sm group-hover:shadow-cardinal/30 transition-shadow pointer-events-none select-none">
                     <iframe 
                         src="https://drive.google.com/file/d/11rhvFW5DC5QVrUWUyX97ZwXLaoGUl8FJ/preview?autoplay=1"
-                        className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] object-cover opacity-80 pointer-events-none filter contrast-125 saturate-150"
-                        title="Vibe Ambience"
+                        className="absolute inset-0 w-full h-full object-cover scale-[1.02]" 
+                        title="Vibe Introduction"
                         allow="autoplay"
                     ></iframe>
                 </div>
