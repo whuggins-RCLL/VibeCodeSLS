@@ -48,8 +48,9 @@ const Dashboard: React.FC = () => {
             {/* Right Video Overlay - Phone Portrait Style */}
             <div className="hidden lg:block w-[280px] xl:w-[300px] shrink-0">
                 <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black backdrop-blur-sm">
+                    {/* Reliable Abstract Tech Video matching the theme */}
                     <video 
-                        src="https://drive.google.com/uc?export=download&id=11rhvFW5DC5QVrUWUyX97ZwXLaoGUl8FJ"
+                        src="https://assets.mixkit.co/videos/preview/mixkit-waves-of-purple-light-1186-large.mp4"
                         className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
                         autoPlay
                         loop
