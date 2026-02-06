@@ -47,12 +47,13 @@ const Dashboard: React.FC = () => {
 
             {/* Right Video Overlay - Phone Portrait Style */}
             <div className="hidden lg:block w-[280px] xl:w-[300px] shrink-0 transform rotate-2 hover:rotate-0 transition-transform duration-700 ease-out perspective-1000">
-                <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black backdrop-blur-sm group-hover:shadow-cardinal/30 transition-shadow pointer-events-none select-none">
+                <div className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-black backdrop-blur-sm group-hover:shadow-cardinal/30 transition-shadow">
                     <iframe 
-                        src="https://drive.google.com/file/d/11rhvFW5DC5QVrUWUyX97ZwXLaoGUl8FJ/preview?autoplay=1"
+                        src="https://drive.google.com/file/d/11rhvFW5DC5QVrUWUyX97ZwXLaoGUl8FJ/preview"
                         className="absolute inset-0 w-full h-full object-cover scale-[1.02]" 
                         title="Vibe Introduction"
-                        allow="autoplay"
+                        allow="autoplay; encrypted-media; fullscreen"
+                        allowFullScreen
                     ></iframe>
                 </div>
             </div>
