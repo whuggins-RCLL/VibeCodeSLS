@@ -179,6 +179,25 @@ const N8nCurriculum: React.FC = () => {
         </div>
       </div>
       
+      {/* Featured Video Section */}
+      <div className="pt-8">
+        <h2 className="text-2xl font-bold mb-6 text-neutral-charcoal dark:text-white flex items-center gap-3">
+          <Play className="text-warmGold" size={28} />
+          n8n in Action
+        </h2>
+        <div className="w-full bg-black rounded-xl overflow-hidden shadow-sls-xl ring-1 ring-neutral-charcoal/5 dark:ring-neutral-offWhite/10 group">
+          <div className="relative w-full" style={{ paddingTop: '56.25%' /* 16:9 Aspect Ratio */ }}>
+            <iframe
+              src="https://www.youtube.com/embed/4cQWJViybAQ"
+              title="n8n Overview"
+              className="absolute top-0 left-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
       {/* Resources */}
       <div className="pt-12 border-t border-neutral-cool/20">
         <h2 className="text-2xl font-bold mb-8 text-neutral-charcoal dark:text-white flex items-center gap-3">
