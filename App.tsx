@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
+import IntroToVibeCoding from './pages/IntroToVibeCoding';
 import UnderstandingAPIs from './pages/UnderstandingAPIs'; 
 import ModuleOne from './pages/ModuleOne';
 import ModuleTwo from './pages/ModuleTwo';
@@ -41,6 +42,9 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             
+            {/* Vibe Coding Intro */}
+            <Route path="/intro" element={<IntroToVibeCoding />} />
+
             {/* API Course Routes */}
             <Route path="/apis" element={<UnderstandingAPIs />} />
             <Route path="/apis/module-1" element={<ModuleOne />} />

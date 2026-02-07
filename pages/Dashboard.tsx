@@ -14,7 +14,9 @@ import {
   ChevronDown,
   Workflow,
   X,
-  Github
+  Github,
+  Zap,
+  BookOpen
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -179,20 +181,15 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Course Catalog Section */}
+      {/* Main Content Area */}
       <div className="pt-8 border-t border-neutral-cool/10">
-        <h2 className="text-3xl font-bold mb-8 text-neutral-charcoal dark:text-white flex items-center gap-3">
-          <span className="w-1.5 h-8 bg-cardinal rounded-full"></span>
-          Curriculum
-        </h2>
         
-        {/* Prerequisite Check Card */}
-        <div className="mb-12 bg-white dark:bg-neutral-darkCard rounded-[40px] border border-neutral-cool/20 p-8 md:p-12 shadow-sls-sm overflow-hidden relative animate-fade-in">
+        {/* Prerequisite Check Section */}
+        <div className="mb-16 bg-white dark:bg-neutral-darkCard rounded-[40px] border border-neutral-cool/20 p-8 md:p-12 shadow-sls-sm overflow-hidden relative">
           <div className="flex flex-col lg:flex-row gap-12 relative z-10">
-            
             {/* Left Column: Readiness Check */}
             <div className="lg:w-1/3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cardinal/10 text-cardinal dark:text-electric text-[10px] font-bold uppercase tracking-widest mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cardinal/10 text-cardinal dark:bg-electric/10 dark:text-electric text-[10px] font-bold uppercase tracking-widest mb-6">
                 <AlertCircle size={12} /> PREREQUISITE CHECK
               </div>
               <h2 className="text-3xl font-black text-neutral-charcoal dark:text-white mb-6 tracking-tight leading-tight">Are you ready for a Deep Dive?</h2>
@@ -202,18 +199,18 @@ const Dashboard: React.FC = () => {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xs font-black uppercase tracking-widest text-neutral-cool mb-4">STEP-UP: PRACTICE FIRST</h3>
+                  <h3 className="text-xs font-black uppercase tracking-widest text-neutral-slate/60 dark:text-neutral-cool/60 mb-4">STEP-UP: PRACTICE FIRST</h3>
                   <div className="flex flex-col gap-3">
-                    <a href="https://sites.google.com/law.stanford.edu/ailearninghub/sls-training-center/custom-gpts" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-charcoal dark:text-neutral-offWhite hover:text-cardinal dark:hover:text-electric transition-colors">
-                      <div className="p-2 bg-neutral-offWhite dark:bg-neutral-darkBg rounded-lg group-hover:bg-cardinal group-hover:text-white transition-colors"><MessageSquare size={14}/></div>
+                    <a href="https://sites.google.com/law.stanford.edu/ailearninghub/sls-training-center/custom-gpts" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric transition-colors">
+                      <div className="p-2 bg-neutral-offWhite dark:bg-white/5 rounded-lg group-hover:bg-cardinal dark:group-hover:bg-electric group-hover:text-white transition-colors"><MessageSquare size={14}/></div>
                       Custom ChatGPT GPTs Guide
                     </a>
-                    <a href="https://sites.google.com/law.stanford.edu/ailearninghub/sls-training-center/custom-gems" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-charcoal dark:text-neutral-offWhite hover:text-cardinal dark:hover:text-electric transition-colors">
-                      <div className="p-2 bg-neutral-offWhite dark:bg-neutral-darkBg rounded-lg group-hover:bg-cardinal group-hover:text-white transition-colors"><Sparkles size={14}/></div>
+                    <a href="https://sites.google.com/law.stanford.edu/ailearninghub/sls-training-center/custom-gems" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric transition-colors">
+                      <div className="p-2 bg-neutral-offWhite dark:bg-white/5 rounded-lg group-hover:bg-cardinal dark:group-hover:bg-electric group-hover:text-white transition-colors"><Sparkles size={14}/></div>
                       Custom Gemini Gems Guide
                     </a>
-                    <a href="https://sites.google.com/law.stanford.edu/ailearninghub/chatgpt-projects" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-charcoal dark:text-neutral-offWhite hover:text-cardinal dark:hover:text-electric transition-colors">
-                      <div className="p-2 bg-neutral-offWhite dark:bg-neutral-darkBg rounded-lg group-hover:bg-cardinal group-hover:text-white transition-colors"><Layout size={14}/></div>
+                    <a href="https://sites.google.com/law.stanford.edu/ailearninghub/chatgpt-projects" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm font-bold text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric transition-colors">
+                      <div className="p-2 bg-neutral-offWhite dark:bg-white/5 rounded-lg group-hover:bg-cardinal dark:group-hover:bg-electric group-hover:text-white transition-colors"><Layout size={14}/></div>
                       ChatGPT Projects Guide
                     </a>
                   </div>
@@ -223,7 +220,7 @@ const Dashboard: React.FC = () => {
 
             {/* Right Column: Foundations Links */}
             <div className="lg:w-2/3">
-              <div className="bg-neutral-offWhite/50 dark:bg-neutral-darkBg/50 p-8 rounded-[32px] border border-neutral-cool/10 h-full">
+              <div className="bg-neutral-offWhite dark:bg-white/5 p-8 rounded-[32px] border border-neutral-cool/20">
                 <h3 className="text-lg font-bold text-neutral-charcoal dark:text-white mb-6 flex items-center gap-2">
                   <GraduationCap className="text-cardinal dark:text-electric" size={20}/> AI Foundations (DIY Intro)
                 </h3>
@@ -260,7 +257,44 @@ const Dashboard: React.FC = () => {
           <AlertCircle size={240} className="absolute -bottom-20 -left-20 text-cardinal/5 dark:text-white/5 pointer-events-none" />
         </div>
 
+        <h2 className="text-3xl font-bold mb-8 text-neutral-charcoal dark:text-white flex items-center gap-3">
+          <span className="w-1.5 h-8 bg-cardinal rounded-full"></span>
+          Curriculum
+        </h2>
+
+        {/* Curriculum Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Vibe Coding 101 Card - Beautifully Colored in Grid */}
+          <Link to="/intro" className="group block h-full">
+             <div className="h-full bg-gradient-to-br from-cardinal to-deepPurple rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg transition-all duration-300 p-8 flex flex-col relative overflow-hidden text-white">
+                {/* Background Decor */}
+                <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-30 transition-opacity transform group-hover:scale-110 duration-500">
+                   <Sparkles size={120} />
+                </div>
+                
+                <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 transition-transform group-hover:scale-110 duration-300 border border-white/20">
+                   <Zap size={24} fill="currentColor" />
+                </div>
+                
+                <div className="flex items-center gap-2 mb-2">
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/20 border border-white/20">New Skill</span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-white mb-2">Vibe Coding 101</h3>
+                <p className="text-white/90 mb-8 flex-1 leading-relaxed z-10">
+                  The non-technical guide to building software with AI. Learn the mindset, tools, and safety protocols.
+                </p>
+                
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/20 z-10">
+                   <span className="text-xs font-bold uppercase tracking-wider text-white/80">Start Here</span>
+                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:translate-x-1 transition-transform">
+                     Get Started <ArrowRight size={16} />
+                   </span>
+                </div>
+             </div>
+          </Link>
+
           {/* APIs & Integration Card */}
           <Link to="/apis" className="group block h-full">
              <div className="h-full bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg hover:border-cardinal/40 transition-all duration-300 p-8 flex flex-col relative overflow-hidden">
