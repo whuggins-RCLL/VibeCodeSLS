@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -10,10 +10,22 @@ import {
   AlertCircle, 
   Sparkles, 
   Layout, 
-  GraduationCap 
+  GraduationCap,
+  ChevronDown
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
+  // State to manage visibility of the intro section, persisted in localStorage
+  const [showIntro, setShowIntro] = useState(() => {
+    return localStorage.getItem('showIntroSection') !== 'false';
+  });
+
+  const toggleIntro = () => {
+    const newState = !showIntro;
+    setShowIntro(newState);
+    localStorage.setItem('showIntroSection', String(newState));
+  };
+
   return (
     <div className="space-y-12 max-w-7xl mx-auto">
       
@@ -46,59 +58,100 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Intro Grid - Digestible Content */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        
-        {/* Main Concept - Spans 8 cols */}
-        <div className="md:col-span-8 bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm flex flex-col justify-center hover:shadow-sls-md transition-shadow duration-300">
-           <h2 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-4 flex items-center gap-2">
-             <Brain className="text-deepPurple" size={24} />
-             Not Inherently Technical
+      {/* Collapsible Intro Section */}
+      <div className="space-y-6">
+        {/* Section Header / Toggle */}
+        <div className="flex items-center justify-between border-b border-neutral-cool/10 pb-4">
+           <h2 className="text-2xl font-bold text-neutral-charcoal dark:text-white flex items-center gap-2">
+             <Sparkles className="text-deepPurple" size={24} />
+             The Mindset
            </h2>
-           <p className="text-lg text-neutral-slate dark:text-neutral-cool leading-relaxed">
-             Vibe coding requires advanced AI literacy, but the skills you need aren't about syntax or loops. They're about what you already possess: <strong className="text-cardinal dark:text-electric">clear communication</strong> and <strong className="text-cardinal dark:text-electric">creative thinking</strong>.
-           </p>
+           <button
+             onClick={toggleIntro}
+             className="flex items-center gap-2 text-sm font-medium text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric transition-colors focus:outline-none"
+             aria-expanded={showIntro}
+             aria-label={showIntro ? "Hide introduction section" : "Show introduction section"}
+           >
+             {showIntro ? 'Hide Concepts' : 'Show Concepts'}
+             <ChevronDown 
+               size={18} 
+               className={`transition-transform duration-300 ${showIntro ? 'rotate-180' : ''}`} 
+             />
+           </button>
         </div>
 
-        {/* Karpathy Quote - Spans 4 cols */}
-        <div className="md:col-span-4 bg-deepPurple/5 dark:bg-deepPurple/10 rounded-2xl p-8 border border-deepPurple/10 flex flex-col justify-center relative overflow-hidden">
-           <div className="absolute top-0 right-0 p-4 opacity-5 text-deepPurple">
-             <MessageSquare size={100} />
-           </div>
-           <blockquote className="relative z-10 italic text-neutral-charcoal dark:text-neutral-offWhite font-medium text-lg leading-relaxed">
-             "Where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
-           </blockquote>
-           <div className="mt-6 flex items-center gap-3">
-             <div className="w-8 h-8 rounded-full bg-deepPurple/20 flex items-center justify-center text-xs font-bold text-deepPurple">AK</div>
-             <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate">Andrej Karpathy</span>
-           </div>
-        </div>
+        {/* Intro Grid - Digestible Content */}
+        <div 
+          className={`grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-500 ease-in-out origin-top ${
+            showIntro 
+              ? 'opacity-100 max-h-[1000px] visible' 
+              : 'opacity-0 max-h-0 invisible py-0'
+          }`}
+        >
+          
+          {/* Main Concept - Spans 8 cols */}
+          <div className="md:col-span-8 bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm flex flex-col justify-center hover:shadow-sls-md transition-shadow duration-300">
+             <h2 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-4 flex items-center gap-2">
+               <Brain className="text-deepPurple" size={24} />
+               Not Inherently Technical
+             </h2>
+             <p className="text-lg text-neutral-slate dark:text-neutral-cool leading-relaxed">
+               Vibe coding requires advanced AI literacy, but the skills you need aren't about syntax or loops. They're about what you already possess: <strong className="text-cardinal dark:text-electric">clear communication</strong> and <strong className="text-cardinal dark:text-electric">creative thinking</strong>.
+             </p>
+          </div>
 
-        {/* The Process - Spans 6 cols */}
-        <div className="md:col-span-6 bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-md transition-shadow duration-300">
-           <h3 className="text-xl font-bold text-neutral-charcoal dark:text-white mb-4">Intention & Conversation</h3>
-           <p className="text-neutral-slate dark:text-neutral-cool leading-relaxed">
-             You don't write code; you direct it. Your role shifts to articulating ideas, evaluating outcomes, and refining vision. It's software creation through iterative dialogue.
-           </p>
-        </div>
+          {/* Karpathy Quote - Spans 4 cols */}
+          <div className="md:col-span-4 bg-deepPurple/5 dark:bg-deepPurple/10 rounded-2xl p-8 border border-deepPurple/10 flex flex-col justify-center relative overflow-hidden">
+             <div className="absolute top-0 right-0 p-4 opacity-5 text-deepPurple">
+               <MessageSquare size={100} />
+             </div>
+             <blockquote className="relative z-10 italic text-neutral-charcoal dark:text-neutral-offWhite font-medium text-lg leading-relaxed">
+               "Where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
+             </blockquote>
+             <div className="mt-6 flex items-center justify-between">
+               <div className="flex items-center gap-3">
+                 <div className="w-8 h-8 rounded-full bg-deepPurple/20 flex items-center justify-center text-xs font-bold text-deepPurple">AK</div>
+                 <div className="flex flex-col">
+                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate dark:text-neutral-cool">Andrej Karpathy</span>
+                    <a 
+                      href="https://x.com/karpathy/status/1886192184808149383?lang=en" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[10px] text-deepPurple dark:text-electric hover:underline flex items-center gap-1 mt-0.5"
+                    >
+                      View Post <ExternalLink size={10} />
+                    </a>
+                 </div>
+               </div>
+             </div>
+          </div>
 
-        {/* Prerequisites Box - Spans 6 cols */}
-        <div className="md:col-span-6 bg-gradient-to-br from-neutral-offWhite to-white dark:from-neutral-darkBg dark:to-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm flex flex-col hover:shadow-sls-md transition-shadow duration-300">
-           <h3 className="text-xl font-bold text-neutral-charcoal dark:text-white mb-4 flex items-center gap-2">
-             <Lightbulb className="text-warmGold" size={24} />
-             New to AI?
-           </h3>
-           <p className="text-neutral-slate dark:text-neutral-cool mb-6 flex-1">
-             If you've never used AI, start at the <strong>Learning Hub</strong>. Vibe coding assumes you are comfortable with prompt refinement.
-           </p>
-           <a 
-              href="https://sites.google.com/law.stanford.edu/ailearninghub/home" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-bold text-cardinal dark:text-electric hover:translate-x-1 transition-transform w-fit"
-            >
-              Visit AI Learning Hub <ExternalLink size={14} />
-            </a>
+          {/* The Process - Spans 6 cols */}
+          <div className="md:col-span-6 bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-md transition-shadow duration-300">
+             <h3 className="text-xl font-bold text-neutral-charcoal dark:text-white mb-4">Intention & Conversation</h3>
+             <p className="text-neutral-slate dark:text-neutral-cool leading-relaxed">
+               You don't write code; you direct it. Your role shifts to articulating ideas, evaluating outcomes, and refining vision. It's software creation through iterative dialogue.
+             </p>
+          </div>
+
+          {/* Prerequisites Box - Spans 6 cols */}
+          <div className="md:col-span-6 bg-gradient-to-br from-neutral-offWhite to-white dark:from-neutral-darkBg dark:to-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm flex flex-col hover:shadow-sls-md transition-shadow duration-300">
+             <h3 className="text-xl font-bold text-neutral-charcoal dark:text-white mb-4 flex items-center gap-2">
+               <Lightbulb className="text-warmGold" size={24} />
+               New to AI?
+             </h3>
+             <p className="text-neutral-slate dark:text-neutral-cool mb-6 flex-1">
+               If you've never used AI, start at the <strong>Learning Hub</strong>. Vibe coding assumes you are comfortable with prompt refinement.
+             </p>
+             <a 
+                href="https://sites.google.com/law.stanford.edu/ailearninghub/home" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-bold text-cardinal dark:text-electric hover:translate-x-1 transition-transform w-fit"
+              >
+                Visit AI Learning Hub <ExternalLink size={14} />
+              </a>
+          </div>
         </div>
       </div>
 
