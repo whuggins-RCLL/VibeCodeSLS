@@ -11,7 +11,9 @@ import {
   Sparkles, 
   Layout, 
   GraduationCap,
-  ChevronDown
+  ChevronDown,
+  Workflow,
+  X
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -24,6 +26,16 @@ const Dashboard: React.FC = () => {
     const newState = !showIntro;
     setShowIntro(newState);
     localStorage.setItem('showIntroSection', String(newState));
+  };
+  
+  // State to manage visibility of the quote card, persisted in localStorage
+  const [showQuote, setShowQuote] = useState(() => {
+    return localStorage.getItem('hideKarpathyQuote') !== 'true';
+  });
+
+  const handleHideQuote = () => {
+    setShowQuote(false);
+    localStorage.setItem('hideKarpathyQuote', 'true');
   };
 
   return (
@@ -89,8 +101,8 @@ const Dashboard: React.FC = () => {
           }`}
         >
           
-          {/* Main Concept - Spans 8 cols */}
-          <div className="md:col-span-8 bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm flex flex-col justify-center hover:shadow-sls-md transition-shadow duration-300">
+          {/* Main Concept - Expands if quote is hidden */}
+          <div className={`${showQuote ? 'md:col-span-8' : 'md:col-span-12'} bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm flex flex-col justify-center hover:shadow-sls-md transition-all duration-300 ease-in-out`}>
              <h2 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-4 flex items-center gap-2">
                <Brain className="text-deepPurple" size={24} />
                Not Inherently Technical
@@ -101,30 +113,41 @@ const Dashboard: React.FC = () => {
           </div>
 
           {/* Karpathy Quote - Spans 4 cols */}
-          <div className="md:col-span-4 bg-deepPurple/5 dark:bg-deepPurple/10 rounded-2xl p-8 border border-deepPurple/10 flex flex-col justify-center relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-4 opacity-5 text-deepPurple">
-               <MessageSquare size={100} />
-             </div>
-             <blockquote className="relative z-10 italic text-neutral-charcoal dark:text-neutral-offWhite font-medium text-lg leading-relaxed">
-               "Where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
-             </blockquote>
-             <div className="mt-6 flex items-center justify-between">
-               <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-full bg-deepPurple/20 flex items-center justify-center text-xs font-bold text-deepPurple">AK</div>
-                 <div className="flex flex-col">
-                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate dark:text-neutral-cool">Andrej Karpathy</span>
-                    <a 
-                      href="https://x.com/karpathy/status/1886192184808149383?lang=en" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-[10px] text-deepPurple dark:text-electric hover:underline flex items-center gap-1 mt-0.5"
-                    >
-                      View Post <ExternalLink size={10} />
-                    </a>
+          {showQuote && (
+            <div className="md:col-span-4 bg-deepPurple/5 dark:bg-deepPurple/10 rounded-2xl p-8 border border-deepPurple/10 flex flex-col justify-center relative overflow-hidden group animate-fade-in">
+               {/* Dismiss Button */}
+               <button 
+                 onClick={handleHideQuote}
+                 className="absolute top-3 right-3 p-1.5 text-deepPurple/40 hover:text-deepPurple dark:text-white/30 dark:hover:text-white transition-colors z-20 rounded-full hover:bg-deepPurple/10"
+                 aria-label="Dismiss quote"
+               >
+                 <X size={16} />
+               </button>
+
+               <div className="absolute top-0 right-0 p-4 opacity-5 text-deepPurple pointer-events-none">
+                 <MessageSquare size={100} />
+               </div>
+               <blockquote className="relative z-10 italic text-neutral-charcoal dark:text-neutral-offWhite font-medium text-lg leading-relaxed">
+                 "Where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
+               </blockquote>
+               <div className="mt-6 flex items-center justify-between">
+                 <div className="flex items-center gap-3">
+                   <div className="w-8 h-8 rounded-full bg-deepPurple/20 flex items-center justify-center text-xs font-bold text-deepPurple">AK</div>
+                   <div className="flex flex-col">
+                      <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate dark:text-neutral-cool">Andrej Karpathy</span>
+                      <a 
+                        href="https://x.com/karpathy/status/1886192184808149383?lang=en" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-deepPurple dark:text-electric hover:underline flex items-center gap-1 mt-0.5"
+                      >
+                        View Post <ExternalLink size={10} />
+                      </a>
+                   </div>
                  </div>
                </div>
-             </div>
-          </div>
+            </div>
+          )}
 
           {/* The Process - Spans 6 cols */}
           <div className="md:col-span-6 bg-white dark:bg-neutral-darkCard rounded-2xl p-8 border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-md transition-shadow duration-300">
@@ -237,6 +260,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* APIs & Integration Card */}
           <Link to="/apis" className="group block h-full">
              <div className="h-full bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg hover:border-cardinal/40 transition-all duration-300 p-8 flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
@@ -255,6 +279,31 @@ const Dashboard: React.FC = () => {
                 <div className="flex items-center justify-between mt-auto pt-6 border-t border-neutral-cool/10 z-10">
                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">7 Modules</span>
                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-cardinal dark:text-electric group-hover:translate-x-1 transition-transform">
+                     Start Learning <ArrowRight size={16} />
+                   </span>
+                </div>
+             </div>
+          </Link>
+
+          {/* n8n Workflows Card */}
+          <Link to="/n8n" className="group block h-full">
+             <div className="h-full bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg hover:border-warmGold/40 transition-all duration-300 p-8 flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
+                   <Workflow size={120} />
+                </div>
+                
+                <div className="w-12 h-12 rounded-xl bg-warmGold/10 flex items-center justify-center text-warmGold mb-6 transition-transform group-hover:scale-110 duration-300">
+                   <Workflow size={24} />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-2 group-hover:text-warmGold transition-colors">n8n Automation</h3>
+                <p className="text-neutral-slate dark:text-neutral-cool mb-8 flex-1 leading-relaxed z-10">
+                  Visual workflow automation for everyone. Connect apps, transform data, and build AI agents without code.
+                </p>
+                
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-neutral-cool/10 z-10">
+                   <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">6 Modules</span>
+                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-warmGold group-hover:translate-x-1 transition-transform">
                      Start Learning <ArrowRight size={16} />
                    </span>
                 </div>

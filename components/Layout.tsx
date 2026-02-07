@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, GraduationCap, LayoutDashboard, Code, ExternalLink, Library } from 'lucide-react';
+import { Menu, X, Sun, Moon, GraduationCap, LayoutDashboard, Code, ExternalLink, Library, Workflow } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 interface LayoutProps {
@@ -16,6 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navItems = [
     { label: 'Dashboard', path: '/', icon: <LayoutDashboard size={18} /> },
     { label: 'APIs', path: '/apis', icon: <Code size={18} /> },
+    { label: 'Workflows', path: '/n8n', icon: <Workflow size={18} /> },
   ];
 
   const isActive = (path: string) => {

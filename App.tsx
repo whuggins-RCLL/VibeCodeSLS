@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
-import UnderstandingAPIs from './pages/UnderstandingAPIs'; // This is now the Index
+import UnderstandingAPIs from './pages/UnderstandingAPIs'; 
 import ModuleOne from './pages/ModuleOne';
 import ModuleTwo from './pages/ModuleTwo';
 import ModuleThree from './pages/ModuleThree';
@@ -11,6 +11,8 @@ import ModuleFour from './pages/ModuleFour';
 import ModuleFive from './pages/ModuleFive';
 import ModuleSix from './pages/ModuleSix';
 import ModuleSeven from './pages/ModuleSeven';
+import N8nCurriculum from './pages/N8nCurriculum';
+import N8nModuleOne from './pages/N8nModuleOne';
 
 const App: React.FC = () => {
   return (
@@ -30,6 +32,10 @@ const App: React.FC = () => {
             <Route path="/apis/module-6" element={<ModuleSix />} />
             <Route path="/apis/module-7" element={<ModuleSeven />} />
             
+            {/* n8n Course Routes */}
+            <Route path="/n8n" element={<N8nCurriculum />} />
+            <Route path="/n8n/module-1" element={<N8nModuleOne />} />
+
             {/* Legacy redirect for old bookmark safety (optional) */}
             <Route path="/module2" element={<ModuleTwo />} /> 
           </Routes>
