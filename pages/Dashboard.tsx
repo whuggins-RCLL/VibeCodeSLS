@@ -13,7 +13,8 @@ import {
   GraduationCap,
   ChevronDown,
   Workflow,
-  X
+  X,
+  Github
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -305,6 +306,31 @@ const Dashboard: React.FC = () => {
                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">6 Modules</span>
                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-warmGold group-hover:translate-x-1 transition-transform">
                      Start Learning <ArrowRight size={16} />
+                   </span>
+                </div>
+             </div>
+          </Link>
+
+          {/* GitHub Portfolio Card */}
+          <Link to="/github" className="group block h-full">
+             <div className="h-full bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg hover:border-neutral-charcoal/40 dark:hover:border-neutral-cool/40 transition-all duration-300 p-8 flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
+                   <Github size={120} />
+                </div>
+                
+                <div className="w-12 h-12 rounded-xl bg-neutral-charcoal/10 dark:bg-white/10 flex items-center justify-center text-neutral-charcoal dark:text-white mb-6 transition-transform group-hover:scale-110 duration-300">
+                   <Github size={24} />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-2 group-hover:text-neutral-charcoal dark:group-hover:text-electric transition-colors">GitHub Portfolio</h3>
+                <p className="text-neutral-slate dark:text-neutral-cool mb-8 flex-1 leading-relaxed z-10">
+                  Build your professional showcase. A no-code guide to using GitHub for your AI projects.
+                </p>
+                
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-neutral-cool/10 z-10">
+                   <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">18 Parts</span>
+                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-charcoal dark:text-white group-hover:translate-x-1 transition-transform">
+                     Start Building <ArrowRight size={16} />
                    </span>
                 </div>
              </div>
