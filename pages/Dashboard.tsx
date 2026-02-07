@@ -200,7 +200,7 @@ const Dashboard: React.FC = () => {
                 </p>
                 
                 <div className="flex items-center justify-between mt-auto pt-6 border-t border-neutral-cool/10 z-10">
-                   <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">4 Modules</span>
+                   <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">7 Modules</span>
                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-cardinal dark:text-electric group-hover:translate-x-1 transition-transform">
                      Start Learning <ArrowRight size={16} />
                    </span>
