@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, GraduationCap, LayoutDashboard, Code, ExternalLink, Library, Workflow } from 'lucide-react';
+import { Menu, X, Sun, Moon, GraduationCap, LayoutDashboard, ExternalLink, Library, Upload } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 interface LayoutProps {
@@ -15,8 +15,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const navItems = [
     { label: 'Dashboard', path: '/', icon: <LayoutDashboard size={18} /> },
-    { label: 'APIs', path: '/apis', icon: <Code size={18} /> },
-    { label: 'Workflows', path: '/n8n', icon: <Workflow size={18} /> },
   ];
 
   const isActive = (path: string) => {
@@ -100,6 +98,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <Library size={18} />
               AI in the Library
             </a>
+
+            {/* The AI Upload External Link */}
+            <a
+              href="https://sites.google.com/law.stanford.edu/ailearninghub/the-ai-upload"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group flex items-center gap-2 text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric hover:bg-neutral-offWhite dark:hover:bg-neutral-cool/5"
+            >
+              <Upload size={18} />
+              The AI Upload
+            </a>
           </nav>
 
           {/* Right Actions */}
@@ -172,6 +181,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </span>
               AI in the Library
             </a>
+
+            {/* Mobile External Link - The AI Upload */}
+            <a
+              href="https://sites.google.com/law.stanford.edu/ailearninghub/the-ai-upload"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-4 px-4 py-4 rounded-xl text-lg font-medium transition-colors text-neutral-slate dark:text-neutral-cool hover:bg-neutral-offWhite dark:hover:bg-neutral-cool/5"
+            >
+              <span className="text-neutral-cool">
+                <Upload size={18} />
+              </span>
+              The AI Upload
+            </a>
           </nav>
         </div>
       )}
@@ -183,7 +206,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       
       {/* Simple Footer */}
       <footer className="border-t border-neutral-cool/10 bg-neutral-offWhite/50 dark:bg-neutral-darkCard/30 mt-auto">
-        <div className="max-w-[1400px] mx-auto px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-slate/60 dark:text-neutral-cool/40">
+        <div className="max-w-[1400px] mx-auto px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-slate/60 dark:text-neutral-cool">
            <p>© 2026 Stanford Law School. Vibe Code Initiative.</p>
            <div className="flex gap-6">
              <a href="#" className="hover:text-cardinal transition-colors">Accessibility</a>

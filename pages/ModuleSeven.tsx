@@ -38,7 +38,7 @@ async function evolve() {
       <div className="space-y-6">
         <Link 
           to="/apis" 
-          className="inline-flex items-center text-sm font-medium text-neutral-slate hover:text-cardinal transition-colors w-fit group"
+          className="inline-flex items-center text-sm font-medium text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric transition-colors w-fit group"
         >
           <ArrowLeft size={16} className="mr-1 group-hover:-translate-x-1 transition-transform" /> Back to API Course
         </Link>
@@ -47,7 +47,7 @@ async function evolve() {
           <div className="flex items-center gap-3">
              <span className="px-3 py-1 rounded-full bg-electric/10 text-electric text-xs font-bold uppercase tracking-wider">Module 7</span>
              <span className="text-neutral-cool">•</span>
-             <span className="text-sm text-neutral-slate font-medium">Visionary</span>
+             <span className="text-sm text-neutral-slate dark:text-neutral-cool font-medium">Visionary</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-charcoal dark:text-white tracking-tight leading-tight">The Future of Vibe Coding</h1>
         </div>

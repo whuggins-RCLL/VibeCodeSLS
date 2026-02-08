@@ -21,7 +21,7 @@ const UnderstandingAPIs: React.FC = () => {
       <div className="space-y-4">
         <Link 
           to="/" 
-          className="inline-flex items-center text-sm font-medium text-neutral-slate hover:text-cardinal transition-colors w-fit group"
+          className="inline-flex items-center text-sm font-medium text-neutral-slate dark:text-neutral-cool hover:text-cardinal dark:hover:text-electric transition-colors w-fit group"
         >
           <ArrowLeft size={16} className="mr-1 group-hover:-translate-x-1 transition-transform" /> Back to Dashboard
         </Link>

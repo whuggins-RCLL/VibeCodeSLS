@@ -4,6 +4,11 @@ import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import IntroToVibeCoding from './pages/IntroToVibeCoding';
+import VibeCodingTools from './pages/VibeCodingTools';
+import VibeCodingProcess from './pages/VibeCodingProcess';
+import VibeCodingPrompting from './pages/VibeCodingPrompting';
+import VibeCodingSafety from './pages/VibeCodingSafety';
+import VibeCodingLab from './pages/VibeCodingLab';
 import UnderstandingAPIs from './pages/UnderstandingAPIs'; 
 import ModuleOne from './pages/ModuleOne';
 import ModuleTwo from './pages/ModuleTwo';
@@ -42,8 +47,13 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             
-            {/* Vibe Coding Intro */}
+            {/* Vibe Coding Curriculum */}
             <Route path="/intro" element={<IntroToVibeCoding />} />
+            <Route path="/intro/tools" element={<VibeCodingTools />} />
+            <Route path="/intro/process" element={<VibeCodingProcess />} />
+            <Route path="/intro/prompting" element={<VibeCodingPrompting />} />
+            <Route path="/intro/safety" element={<VibeCodingSafety />} />
+            <Route path="/intro/lab" element={<VibeCodingLab />} />
 
             {/* API Course Routes */}
             <Route path="/apis" element={<UnderstandingAPIs />} />

@@ -16,7 +16,9 @@ import {
   X,
   Github,
   Zap,
-  BookOpen
+  BookOpen,
+  Calendar,
+  Mail
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -66,9 +68,29 @@ const Dashboard: React.FC = () => {
                   Vibe Coding
                   </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/95 font-light leading-relaxed drop-shadow-md">
-                  Where English becomes your programming language.
+              <p className="text-xl md:text-2xl text-white/95 font-light leading-relaxed drop-shadow-md mb-8">
+                  Here, learn how plain language becomes your programming language.
               </p>
+
+              {/* RCLL & Contact Info */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm font-medium text-white/90">
+                <a 
+                  href="https://sites.google.com/law.stanford.edu/ailearninghub/events" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-white hover:bg-white/20 bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full transition-all shadow-sm group/link"
+                >
+                  <Calendar size={16} className="group-hover/link:text-warmGold transition-colors" />
+                  RCLL Events & Curiosity Corners
+                </a>
+                <a 
+                  href="mailto:library@law.stanford.edu"
+                  className="flex items-center gap-2 hover:text-white hover:bg-white/20 bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full transition-all shadow-sm group/link"
+                >
+                  <Mail size={16} className="group-hover/link:text-cyanAccent transition-colors" />
+                  library@law.stanford.edu
+                </a>
+              </div>
             </div>
         </div>
       </div>
