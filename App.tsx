@@ -38,6 +38,8 @@ import GithubPortfolioPart15 from './pages/GithubPortfolioPart15';
 import GithubPortfolioPart16 from './pages/GithubPortfolioPart16';
 import GithubPortfolioPart17 from './pages/GithubPortfolioPart17';
 import GithubPortfolioPart18 from './pages/GithubPortfolioPart18';
+import GoogleStitchTutorial from './pages/GoogleStitchTutorial';
+import CodingWithKaggle from './pages/CodingWithKaggle';
 
 const App: React.FC = () => {
   return (
@@ -89,6 +91,12 @@ const App: React.FC = () => {
             <Route path="/github/part-16" element={<GithubPortfolioPart16 />} />
             <Route path="/github/part-17" element={<GithubPortfolioPart17 />} />
             <Route path="/github/part-18" element={<GithubPortfolioPart18 />} />
+
+            {/* Google Stitch Tutorial */}
+            <Route path="/stitch" element={<GoogleStitchTutorial />} />
+
+            {/* Coding with Kaggle Tutorial */}
+            <Route path="/kaggle" element={<CodingWithKaggle />} />
 
             {/* Legacy redirect for old bookmark safety (optional) */}
             <Route path="/module2" element={<ModuleTwo />} /> 

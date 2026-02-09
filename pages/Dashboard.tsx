@@ -18,7 +18,9 @@ import {
   Zap,
   BookOpen,
   Calendar,
-  Mail
+  Mail,
+  Palette,
+  Database
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -362,6 +364,56 @@ const Dashboard: React.FC = () => {
                    <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">6 Modules</span>
                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-warmGold group-hover:translate-x-1 transition-transform">
                      Start Learning <ArrowRight size={16} />
+                   </span>
+                </div>
+             </div>
+          </Link>
+
+          {/* Google Stitch Card */}
+          <Link to="/stitch" className="group block h-full">
+             <div className="h-full bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg hover:border-deepPurple/40 transition-all duration-300 p-8 flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
+                   <Palette size={120} />
+                </div>
+                
+                <div className="w-12 h-12 rounded-xl bg-deepPurple/10 flex items-center justify-center text-deepPurple mb-6 transition-transform group-hover:scale-110 duration-300">
+                   <Palette size={24} />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-2 group-hover:text-deepPurple dark:group-hover:text-electric transition-colors">Stitch (Google Labs)</h3>
+                <p className="text-neutral-slate dark:text-neutral-cool mb-8 flex-1 leading-relaxed z-10">
+                  AI-assisted interface design. Prototype functional app layouts in plain English instantly.
+                </p>
+                
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-neutral-cool/10 z-10">
+                   <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">Tutorial</span>
+                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-deepPurple dark:text-electric group-hover:translate-x-1 transition-transform">
+                     Start Designing <ArrowRight size={16} />
+                   </span>
+                </div>
+             </div>
+          </Link>
+
+          {/* Coding with Kaggle Card */}
+          <Link to="/kaggle" className="group block h-full">
+             <div className="h-full bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm hover:shadow-sls-lg hover:border-cyanAccent/40 transition-all duration-300 p-8 flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
+                   <Database size={120} />
+                </div>
+                
+                <div className="w-12 h-12 rounded-xl bg-cyanAccent/10 flex items-center justify-center text-cyanAccent dark:text-cyan-400 mb-6 transition-transform group-hover:scale-110 duration-300">
+                   <Database size={24} />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-neutral-charcoal dark:text-white mb-2 group-hover:text-cyanAccent dark:group-hover:text-cyan-400 transition-colors">Coding with Kaggle</h3>
+                <p className="text-neutral-slate dark:text-neutral-cool mb-8 flex-1 leading-relaxed z-10">
+                  Your free, cloud-based environment for data science and AI projects. No setup required.
+                </p>
+                
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-neutral-cool/10 z-10">
+                   <span className="text-xs font-bold uppercase tracking-wider text-neutral-slate/60 dark:text-neutral-cool/50">Tutorial</span>
+                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-cyanAccent dark:text-cyan-400 group-hover:translate-x-1 transition-transform">
+                     Start Coding <ArrowRight size={16} />
                    </span>
                 </div>
              </div>
