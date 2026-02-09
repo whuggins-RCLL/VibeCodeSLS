@@ -1077,9 +1077,9 @@ This project pairs with a configuration in **Google AI Studio**.`} />
                           <div className="bg-neutral-offWhite dark:bg-white/5 p-6 rounded-xl border border-neutral-cool/20">
                             <h4 className="font-bold text-neutral-charcoal dark:text-white mb-3">Sources & Further Reading</h4>
                             <ul className="list-disc list-inside space-y-2 text-neutral-slate dark:text-neutral-cool text-sm">
-                              <li><a href="https://dev.to/googleai/from-prompt-to-deployed-app-in-less-than-2-minutes-dh3" target="_blank" className="text-cardinal dark:text-electric hover:underline">Google AI Studio Dev Guide</a></li>
-                              <li><a href="https://www.kdnuggets.com/the-complete-guide-to-using-google-ai-studio" target="_blank" className="text-cardinal dark:text-electric hover:underline">Google AI Studio Complete Guide (KDnuggets)</a></li>
-                              <li><a href="https://codelabs.developers.google.com/sdlc/instructions" target="_blank" className="text-cardinal dark:text-electric hover:underline">Google Cloud Codelab</a></li>
+                              <li><a href="https://dev.to/googleai/from-prompt-to-deployed-app-in-less-than-2-minutes-dh3" target="_blank" rel="noopener noreferrer" className="text-cardinal dark:text-electric hover:underline">Google AI Studio Dev Guide</a></li>
+                              <li><a href="https://www.kdnuggets.com/the-complete-guide-to-using-google-ai-studio" target="_blank" rel="noopener noreferrer" className="text-cardinal dark:text-electric hover:underline">Google AI Studio Complete Guide (KDnuggets)</a></li>
+                              <li><a href="https://codelabs.developers.google.com/sdlc/instructions" target="_blank" rel="noopener noreferrer" className="text-cardinal dark:text-electric hover:underline">Google Cloud Codelab</a></li>
                             </ul>
                           </div>
                         </div>
