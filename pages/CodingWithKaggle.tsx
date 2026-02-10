@@ -2,50 +2,49 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Database, Code, Terminal, Layers, Network, BookOpen, AlertTriangle, Check, Copy, CheckCircle } from 'lucide-react';
 
-const CodingWithKaggle: React.FC = () => {
-  const [activeAdkTab, setActiveAdkTab] = useState<'python' | 'go' | 'java'>('python');
-  const [activePart, setActivePart] = useState<'part1' | 'part2'>('part1');
-  const [copied, setCopied] = useState<string | null>(null);
+// Helper Components defined outside to prevent re-renders and clean up code
+const LessonCard = ({ title, children }: { title: string, children?: React.ReactNode }) => (
+  <div className="bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm overflow-hidden mb-12">
+    <div className="bg-neutral-offWhite dark:bg-white/5 p-6 border-b border-neutral-cool/20">
+      <h3 className="text-2xl font-bold text-neutral-charcoal dark:text-white">{title}</h3>
+    </div>
+    <div className="p-6 md:p-8 space-y-8">
+      {children}
+    </div>
+  </div>
+);
 
-  const handleCopy = (text: string, id: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(id);
-    setTimeout(() => setCopied(null), 2000);
+const VideoEmbed = ({ src, title }: { src: string, title: string }) => (
+  <div className="relative w-full pb-[56.25%] rounded-xl overflow-hidden shadow-md border border-neutral-cool/10">
+    <iframe 
+      className="absolute top-0 left-0 w-full h-full"
+      src={src} 
+      title={title}
+      allow="autoplay; encrypted-media" 
+      allowFullScreen 
+      frameBorder="0"
+    />
+  </div>
+);
+
+const CodeBlock = ({ code, id, language = "python" }: { code: string, id: string, language?: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
-  const LessonCard = ({ title, children }: { title: string, children?: React.ReactNode }) => (
-    <div className="bg-white dark:bg-neutral-darkCard rounded-2xl border border-neutral-cool/20 shadow-sls-sm overflow-hidden mb-12">
-      <div className="bg-neutral-offWhite dark:bg-white/5 p-6 border-b border-neutral-cool/20">
-        <h3 className="text-2xl font-bold text-neutral-charcoal dark:text-white">{title}</h3>
-      </div>
-      <div className="p-6 md:p-8 space-y-8">
-        {children}
-      </div>
-    </div>
-  );
-
-  const VideoEmbed = ({ src, title }: { src: string, title: string }) => (
-    <div className="relative w-full pb-[56.25%] rounded-xl overflow-hidden shadow-md border border-neutral-cool/10">
-      <iframe 
-        className="absolute top-0 left-0 w-full h-full"
-        src={src} 
-        title={title}
-        allow="autoplay; encrypted-media" 
-        allowFullScreen 
-        frameBorder="0"
-      />
-    </div>
-  );
-
-  const CodeBlock = ({ code, id, language = "python" }: { code: string, id: string, language?: string }) => (
+  return (
     <div className="relative group rounded-lg overflow-hidden border border-neutral-cool/20 bg-neutral-offWhite dark:bg-neutral-darkBg/50">
       <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
         <button
-          onClick={() => handleCopy(code, id)}
+          onClick={handleCopy}
           className="p-1.5 bg-white dark:bg-neutral-darkCard rounded-md shadow-sm border border-neutral-cool/20 text-neutral-slate hover:text-cardinal transition-colors"
           title="Copy code"
         >
-          {copied === id ? <Check size={14} /> : <Copy size={14} />}
+          {copied ? <Check size={14} /> : <Copy size={14} />}
         </button>
       </div>
       <pre className="p-4 text-sm font-mono text-neutral-charcoal dark:text-neutral-cool overflow-x-auto whitespace-pre-wrap">
@@ -53,6 +52,11 @@ const CodingWithKaggle: React.FC = () => {
       </pre>
     </div>
   );
+};
+
+const CodingWithKaggle: React.FC = () => {
+  const [activeAdkTab, setActiveAdkTab] = useState<'python' | 'go' | 'java'>('python');
+  const [activePart, setActivePart] = useState<'part1' | 'part2'>('part1');
 
   return (
     <div className="max-w-5xl mx-auto space-y-12 pb-24">
