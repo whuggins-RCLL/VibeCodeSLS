@@ -208,11 +208,11 @@ const CodingWithKaggle: React.FC = () => {
               <p className="text-neutral-slate dark:text-neutral-cool mb-4">
                   A typical LLM: You give it a prompt, it gives text.
               </p>
-              <pre className="bg-white dark:bg-black/20 rounded-md p-3 mb-4 text-sm font-mono text-neutral-slate dark:text-neutral-cool border border-neutral-cool/10">Prompt -> LLM -> Text</pre>
+              <pre className="bg-white dark:bg-black/20 rounded-md p-3 mb-4 text-sm font-mono text-neutral-slate dark:text-neutral-cool border border-neutral-cool/10">Prompt -&gt; LLM -&gt; Text</pre>
               <p className="text-neutral-slate dark:text-neutral-cool mb-4">
                   An AI Agent: It can think, take actions, and observe results to give a better answer.
               </p>
-              <pre className="bg-white dark:bg-black/20 rounded-md p-3 mb-4 text-sm font-mono text-neutral-slate dark:text-neutral-cool border border-neutral-cool/10">Prompt -> Agent -> Thought -> Action -> Observation -> Final Answer</pre>
+              <pre className="bg-white dark:bg-black/20 rounded-md p-3 mb-4 text-sm font-mono text-neutral-slate dark:text-neutral-cool border border-neutral-cool/10">Prompt -&gt; Agent -&gt; Thought -&gt; Action -&gt; Observation -&gt; Final Answer</pre>
           </div>
 
           <div className="bg-neutral-offWhite dark:bg-white/5 rounded-xl p-6 border border-neutral-cool/20">
